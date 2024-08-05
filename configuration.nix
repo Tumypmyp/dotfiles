@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./caddy.nix
+#      ./caddy.nix
     ];
 
   # Bootloader.
@@ -104,6 +104,8 @@
      wget
      git
      go
+     dig
+     tmux
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -125,18 +127,12 @@
     # settings.PermitRootLogin = "yes";
   };
 
-services.jellyfin = {
-  enable = true;
-  dataDir = "/home/pandenko/jellyfin/data";
-  user = "pandenko";
-  logDir = "/home/pandenko/jellyfin/log";
-  openFirewall = true;
-};
+
   virtualisation.podman.enable = true;
   virtualisation.docker.enable = true;
   # Open ports in the firewall.
-    networking.firewall.allowedTCPPorts = [ 80 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+    networking.firewall.allowedTCPPorts = [ 80 443 8096 ];
+    networking.firewall.allowedUDPPorts = [ 80 443 8096 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
