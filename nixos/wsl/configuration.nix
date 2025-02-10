@@ -20,13 +20,21 @@
   environment.systemPackages = with pkgs; [
     tmux
     vim
-    git
+
+    # for rebuild script
     alejandra
-    libnotify
+    # libnotify
   ];
 
-  environment.variables = {
-    EDITOR = "vim";
+  programs.git = {
+    enable = true;
+  };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
   };
 
   # This value determines the NixOS release from which the default
