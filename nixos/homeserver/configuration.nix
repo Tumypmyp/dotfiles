@@ -1,14 +1,15 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -72,9 +73,9 @@
   users.users.pandenko = {
     isNormalUser = true;
     description = "Valentin Pandenko";
-    extraGroups = [ "networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -87,12 +88,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     wget
-     git
-     go
-     dig
-     tmux
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    git
+    go
+    dig
+    tmux
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -114,12 +115,11 @@
     # settings.PermitRootLogin = "yes";
   };
 
-
   virtualisation.podman.enable = true;
   virtualisation.docker.enable = true;
   # Open ports in the firewall.
-    networking.firewall.allowedTCPPorts = [ 80 443 8096 ];
-    networking.firewall.allowedUDPPorts = [ 80 443 8096 ];
+  networking.firewall.allowedTCPPorts = [80 443 8096];
+  networking.firewall.allowedUDPPorts = [80 443 8096];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
@@ -130,5 +130,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
