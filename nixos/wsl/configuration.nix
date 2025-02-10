@@ -22,6 +22,7 @@
     vim
     git
     alejandra
+    libnotify
   ];
 
   environment.variables = {
