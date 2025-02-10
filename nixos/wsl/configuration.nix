@@ -25,10 +25,6 @@
 
   programs.git = {
     enable = true;
-    initialConfiguration = {
-      userName = "Timur";
-      userEmail = "gaynoullin@gmail.com";
-    };
   };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
