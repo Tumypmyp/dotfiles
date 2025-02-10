@@ -13,7 +13,7 @@
 set -e
 
 # Edit your config
-$EDITOR wsl/configuration.nix
+$EDITOR ~/dotfiles/nixos/wsl/configuration.nix
 
 # cd to your config dir
 pushd ~/dotfiles/nixos/
