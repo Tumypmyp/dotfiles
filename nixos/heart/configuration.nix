@@ -21,9 +21,11 @@
     shell = pkgs.zsh;
   };
 
+  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     tmux
     vim
+    go
 
     # for rebuild script
     alejandra
