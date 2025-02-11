@@ -12,6 +12,7 @@
   imports = [
     # include NixOS-WSL modules
     <nixos-wsl/modules>
+    ../common
   ];
 
   wsl.enable = true;
@@ -30,34 +31,8 @@
     # for rebuild script
     alejandra
     # libnotify
+    tree
   ];
-
-  programs.git = {
-    enable = true;
-  };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      la = "ls -lah";
-      rebuild = "~/dotfiles/nixos/rebuild.sh";
-    };
-    shellInit = ''
-      export LANG=en_US.UTF-8
-    '';
-    histSize = 10000;
-  };
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
