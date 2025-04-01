@@ -18,6 +18,8 @@
   wsl.enable = true;
   wsl.defaultUser = "pandenko";
 
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
   users.users.pandenko = {
     shell = pkgs.zsh;
   };
@@ -25,15 +27,22 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     tmux
-    vim
     go
 
     # for rebuild script
     alejandra
     # libnotify
     tree
+    anytype
+
+    cargo
+    dioxus-cli
   ];
 
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It's perfectly fine and recommended to leave
