@@ -9,7 +9,7 @@
 
     shellAliases = {
       la = "ls -lah";
-      rebuild = "~/dotfiles/nixos/rebuild.sh";
+      rebuild = "~/dotfiles/nixos/common/rebuild.sh";
     };
     shellInit = ''
       export LANG=en_US.UTF-8
