@@ -7,13 +7,9 @@ nixvim = import (builtins.fetchGit {
 in
 {
   imports = [ nixvim.nixosModules.nixvim ];
-#  programs.neovim = {
-#    enable = true;
-#    viAlias = true;
-#  vimAlias = true;
-#  };
   programs.nixvim = {
     enable = true;
+    defaultEditor = true;
     vimAlias = true;
     viAlias = true;
     opts = {
@@ -71,9 +67,6 @@ in
 
       # Time in milliseconds to wait for a mapped sequence to complete
       timeoutlen = 300;
-
-      # Enable 24-bit RGB color in the TUI
-#      termguicolors = true;
 
       # Don't show mode in the command line
       showmode = false;

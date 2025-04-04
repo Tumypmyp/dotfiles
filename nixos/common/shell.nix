@@ -7,6 +7,10 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
 
+    ohMyZsh = {
+      enable = true;
+      theme = "crcandy";
+    };
     shellAliases = {
       la = "ls -lah";
       rebuild = "~/dotfiles/nixos/common/rebuild.sh";

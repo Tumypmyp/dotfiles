@@ -5,4 +5,5 @@
     ./nvim.nix
     ./shell.nix
   ];
+  time.timeZone = "Asia/Almaty";
 }
