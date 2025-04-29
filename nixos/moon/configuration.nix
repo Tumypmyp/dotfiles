@@ -107,6 +107,13 @@
     settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;
   };
+  systemd.sleep.extraConfig = ''
+    [Sleep]
+    AllowSuspend=no
+    AllowHibernation=no
+    AllowHybridSleep=no
+    AllowSuspendThenHibernate=no
+  '';
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
