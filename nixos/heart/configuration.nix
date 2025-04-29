@@ -20,15 +20,10 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  users.users.pandenko = {
-    shell = pkgs.zsh;
-  };
-
-  nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     go
 
-    # libnotify
     tree
     anytype
     gnumake

@@ -74,8 +74,6 @@
     packages = with pkgs; [
       #  thunderbird
     ];
-
-    shell = pkgs.zsh;
   };
 
   # Allow unfree packages
@@ -85,8 +83,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    tmux
-    git
+
     brave
     anytype
   ];
@@ -107,6 +104,8 @@
     settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;
   };
+
+  # Do not sleep server laptop is pluged in.
   systemd.sleep.extraConfig = ''
     [Sleep]
     AllowSuspend=no
@@ -114,6 +113,7 @@
     AllowHybridSleep=no
     AllowSuspendThenHibernate=no
   '';
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
