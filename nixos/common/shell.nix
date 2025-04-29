@@ -1,6 +1,10 @@
-{...}:
+{pkgs, ...}:
 {
    
+  environment.systemPackages = with pkgs; [
+    alejandra
+  ];
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
