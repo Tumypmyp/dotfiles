@@ -1,9 +1,9 @@
 {...}:
 let
-nixvim = import (builtins.fetchGit {
-        url = "https://github.com/nix-community/nixvim";
-        # When using a different channel you can use `ref = "nixos-<version>"` to set it here
-    });
+  nixvim = import (builtins.fetchGit {
+    url = "https://github.com/nix-community/nixvim";
+    # When using a different channel you can use `ref = "nixos-<version>"` to set it here
+  });
 in
 {
   imports = [ nixvim.nixosModules.nixvim ];
@@ -12,6 +12,7 @@ in
     defaultEditor = true;
     vimAlias = true;
     viAlias = true;
+    imports = [	./theme.nix ];
     opts = {
       # Show line numbers
       number = true;
