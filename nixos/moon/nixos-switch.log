@@ -1,70 +1,41 @@
+error:
+       … while evaluating the attribute 'config'
+         at /nix/var/nix/profiles/per-user/root/channels/nixos/lib/modules.nix:1:12288:
+       … while calling the 'seq' builtin
+         at /nix/var/nix/profiles/per-user/root/channels/nixos/lib/modules.nix:1:12297:
+       (stack trace truncated; use '--show-trace' to show the full, detailed trace)
+
+       error: syntax error, unexpected '}', expecting ';'
+       at /home/pandenko/dotfiles/nixos/common/tmux.nix:9:1:
+            8|   }
+            9| }
+             | ^
+           10|
 building Nix...
+error:
+       … while evaluating the attribute 'config'
+         at /nix/var/nix/profiles/per-user/root/channels/nixos/lib/modules.nix:1:12288:
+       … while calling the 'seq' builtin
+         at /nix/var/nix/profiles/per-user/root/channels/nixos/lib/modules.nix:1:12297:
+       (stack trace truncated; use '--show-trace' to show the full, detailed trace)
+
+       error: syntax error, unexpected '}', expecting ';'
+       at /home/pandenko/dotfiles/nixos/common/tmux.nix:9:1:
+            8|   }
+            9| }
+             | ^
+           10|
 building the system configuration...
-these 19 derivations will be built:
-  /nix/store/ybx25wwspixbqmcm0kpwvwdcpkxvvfd9-options.json.drv
-  /nix/store/mkml0jpx9337br29ams6x7y2msff53p0-nixvim-configuration-reference-manpage.drv
-  /nix/store/2pq3akmj7lnfaaxb0m8bmj9vq1sfqlg9-nixvim.drv
-  /nix/store/n81x1sfyzq4iqi4mj2lihm0cfdy751ii-system-path.drv
-  /nix/store/0aam2fiwqrd0nkq235ac5ws7kwpgz96q-dbus-1.drv
-  /nix/store/0f47fxfzgszi44sdj1mzpkwxaf65jgng-X-Restart-Triggers-polkit.drv
-  /nix/store/cgqhk7n1pljxqi8mrgisvz5zi7qh1w29-set-environment.drv
-  /nix/store/2s2r5bb2p9w3jxl17xc8zjvvhqa5jqx9-etc-zshenv.drv
-  /nix/store/7vd6w1ygfy6ri22c9g4cd4nxfzblkv4w-unit-polkit.service.drv
-  /nix/store/bpczcxjq9ia9gqwi6m9aq5f6xg09fldf-X-Restart-Triggers-dbus.drv
-  /nix/store/b7n6czvi48ylb1v7sy031pkrzqss03gh-unit-dbus.service.drv
-  /nix/store/ylpp434pxxdc35md0j0f6z8z75sq2znv-unit-accounts-daemon.service.drv
-  /nix/store/54x13pwqlk4pa30ss1vf4vc72n4nbgja-system-units.drv
-  /nix/store/5g2qsa6ahfpcyaqgnairca9xvq03a0cm-unit-dbus.service.drv
-  /nix/store/9330w4xd1gf324vha93l5lxh23qywbmh-user-units.drv
-  /nix/store/9xxnbnzp6q7f47blya2sdy0yvs540i3m-etc-pam-environment.drv
-  /nix/store/s6n0rykl1n8dp86z5a8r85yfpsjdqmzr-etc-profile.drv
-  /nix/store/8blnzxzbmfaj0ms092fbd37ybmhilfx3-etc.drv
-  /nix/store/609s73s1hbrki49qgmagm8v33szv5n62-nixos-system-moon-24.11.716947.26d499fc9f1d.drv
-these 8 paths will be fetched (2.22 MiB download, 14.31 MiB unpacked):
-  /nix/store/yj68jas48amjgpy61a8789bjkzlnhcq6-atkmm-2.28.4
-  /nix/store/ldszr7p6d9vxpcjag1lbq610g5gw5pcm-cairomm-1.14.5
-  /nix/store/m27d9mrxd9drkd5vvgrvfri47xd2dxxl-gpart-0.3
-  /nix/store/g9rrin2c7cal1fs6rgzl7lzrapqijy8p-gparted-1.6.0
-  /nix/store/zm4ql7gg8zybgbkw8i2lllqqwirw2b16-gtkmm-3.24.9
-  /nix/store/igkja6lfs0lma0j7vz32188fi7rk0d0g-hdparm-9.65
-  /nix/store/s37y2kgys8ipfcq3nkvgl7y0qqbfm77p-pangomm-2.46.4
-  /nix/store/9xzm69b4715i4ac7fg6yvn9mn671yf58-xhost-1.0.9
-copying path '/nix/store/yj68jas48amjgpy61a8789bjkzlnhcq6-atkmm-2.28.4' from 'https://cache.nixos.org'...
-copying path '/nix/store/ldszr7p6d9vxpcjag1lbq610g5gw5pcm-cairomm-1.14.5' from 'https://cache.nixos.org'...
-copying path '/nix/store/igkja6lfs0lma0j7vz32188fi7rk0d0g-hdparm-9.65' from 'https://cache.nixos.org'...
-copying path '/nix/store/m27d9mrxd9drkd5vvgrvfri47xd2dxxl-gpart-0.3' from 'https://cache.nixos.org'...
-copying path '/nix/store/9xzm69b4715i4ac7fg6yvn9mn671yf58-xhost-1.0.9' from 'https://cache.nixos.org'...
-building '/nix/store/ybx25wwspixbqmcm0kpwvwdcpkxvvfd9-options.json.drv'...
-copying path '/nix/store/s37y2kgys8ipfcq3nkvgl7y0qqbfm77p-pangomm-2.46.4' from 'https://cache.nixos.org'...
-copying path '/nix/store/zm4ql7gg8zybgbkw8i2lllqqwirw2b16-gtkmm-3.24.9' from 'https://cache.nixos.org'...
-copying path '/nix/store/g9rrin2c7cal1fs6rgzl7lzrapqijy8p-gparted-1.6.0' from 'https://cache.nixos.org'...
-building '/nix/store/mkml0jpx9337br29ams6x7y2msff53p0-nixvim-configuration-reference-manpage.drv'...
-gzipping man pages under /nix/store/lp111cs83vfgdwycx6j6dws14y2rh618-nixvim-configuration-reference-manpage/share/man/
-building '/nix/store/2pq3akmj7lnfaaxb0m8bmj9vq1sfqlg9-nixvim.drv'...
-building '/nix/store/n81x1sfyzq4iqi4mj2lihm0cfdy751ii-system-path.drv'...
-created 16751 symlinks in user environment
-gtk-update-icon-cache: Cache file created successfully.
-building '/nix/store/0f47fxfzgszi44sdj1mzpkwxaf65jgng-X-Restart-Triggers-polkit.drv'...
-building '/nix/store/0aam2fiwqrd0nkq235ac5ws7kwpgz96q-dbus-1.drv'...
-building '/nix/store/9xxnbnzp6q7f47blya2sdy0yvs540i3m-etc-pam-environment.drv'...
-building '/nix/store/cgqhk7n1pljxqi8mrgisvz5zi7qh1w29-set-environment.drv'...
-building '/nix/store/ylpp434pxxdc35md0j0f6z8z75sq2znv-unit-accounts-daemon.service.drv'...
-building '/nix/store/bpczcxjq9ia9gqwi6m9aq5f6xg09fldf-X-Restart-Triggers-dbus.drv'...
-building '/nix/store/s6n0rykl1n8dp86z5a8r85yfpsjdqmzr-etc-profile.drv'...
-building '/nix/store/2s2r5bb2p9w3jxl17xc8zjvvhqa5jqx9-etc-zshenv.drv'...
-building '/nix/store/7vd6w1ygfy6ri22c9g4cd4nxfzblkv4w-unit-polkit.service.drv'...
-building '/nix/store/5g2qsa6ahfpcyaqgnairca9xvq03a0cm-unit-dbus.service.drv'...
-building '/nix/store/b7n6czvi48ylb1v7sy031pkrzqss03gh-unit-dbus.service.drv'...
-building '/nix/store/9330w4xd1gf324vha93l5lxh23qywbmh-user-units.drv'...
-building '/nix/store/54x13pwqlk4pa30ss1vf4vc72n4nbgja-system-units.drv'...
-building '/nix/store/8blnzxzbmfaj0ms092fbd37ybmhilfx3-etc.drv'...
-building '/nix/store/609s73s1hbrki49qgmagm8v33szv5n62-nixos-system-moon-24.11.716947.26d499fc9f1d.drv'...
-stopping the following units: accounts-daemon.service
-activating the configuration...
-setting up /etc...
-reloading user units for pandenko...
-restarting sysinit-reactivation.target
-reloading the following units: dbus.service
-restarting the following units: polkit.service
-starting the following units: accounts-daemon.service
-the following new units were started: run-credentials-systemd\x2dtmpfiles\x2dresetup.service.mount, sysinit-reactivation.target, systemd-tmpfiles-resetup.service
+error:
+       … while evaluating the attribute 'config.system.build.toplevel'
+         at /nix/var/nix/profiles/per-user/root/channels/nixos/lib/modules.nix:1:12288:
+       … while calling the 'seq' builtin
+         at /nix/var/nix/profiles/per-user/root/channels/nixos/lib/modules.nix:1:12297:
+       (stack trace truncated; use '--show-trace' to show the full, detailed trace)
+
+       error: syntax error, unexpected '}', expecting ';'
+       at /home/pandenko/dotfiles/nixos/common/tmux.nix:9:1:
+            8|   }
+            9| }
+             | ^
+           10|

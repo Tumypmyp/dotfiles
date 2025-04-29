@@ -26,11 +26,8 @@
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    tmux
     go
 
-    # for rebuild script
-    alejandra
     # libnotify
     tree
     anytype
