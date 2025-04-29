@@ -8,7 +8,7 @@
   ];
   time.timeZone = "Asia/Almaty";
   
-  environment.SystemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
 #    wget
     tree
   ];
