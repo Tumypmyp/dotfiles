@@ -1,4 +1,4 @@
-{...}:
+{pkgs, ...}:
 {
   imports = [
     ./git.nix
@@ -7,4 +7,9 @@
     ./tmux.nix
   ];
   time.timeZone = "Asia/Almaty";
+  
+  environment.SystemPackages = with pkgs; [
+#    wget
+    tree
+  ];
 }
