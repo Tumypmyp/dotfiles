@@ -7,9 +7,9 @@
 }: {
   imports = [
     ../common
+    ./hardware-configuration.nix
   ];
 
-  boot.growPartition = true;
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -20,6 +20,7 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -84,7 +85,22 @@
   environment.systemPackages = with pkgs; [
     brave
     anytype
+
+    #    libxcrypt-compat
   ];
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    gtk3
+    bash
+    glibc
+    gcc
+
+    # Add any missing dynamic libraries for unpackaged programs
+    # here, NOT in environment.systemPackages
+  ];
+
+  services.envfs.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -112,9 +128,18 @@
     AllowSuspendThenHibernate=no
   '';
 
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    guiAddress = "0.0.0.0:8384";
+    settings.gui = {
+      user = "pandenko";
+      password = "pass";
+    };
+  };
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [8384];
+  networking.firewall.allowedUDPPorts = [8384];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
