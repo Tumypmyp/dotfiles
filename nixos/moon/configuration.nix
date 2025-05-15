@@ -8,6 +8,8 @@
   imports = [
     ../common
     ./hardware-configuration.nix
+    ./syncthing.nix
+    ./photoprism.nix
   ];
 
   # Bootloader.
@@ -128,18 +130,9 @@
     AllowSuspendThenHibernate=no
   '';
 
-  services.syncthing = {
-    enable = true;
-    openDefaultPorts = true;
-    guiAddress = "0.0.0.0:8384";
-    settings.gui = {
-      user = "pandenko";
-      password = "pass";
-    };
-  };
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [8384];
-  networking.firewall.allowedUDPPorts = [8384];
+  networking.firewall.allowedTCPPorts = [8384 2342];
+  networking.firewall.allowedUDPPorts = [8384 2342];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

@@ -28,6 +28,15 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
+  fileSystems."/var/lib/private/photoprism" =
+    { device = "/data/photoprism";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/var/lib/private/photoprism/originals" =
+    { device = "/data/originals";
+      options = [ "bind" ];
+    };
   swapDevices = [];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
