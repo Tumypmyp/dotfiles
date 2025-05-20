@@ -4,14 +4,19 @@
   ... 
 }:
 {
+  age.secrets.photoprism = {
+    file = "/home/pandenko/dotfiles/nixos/secrets/photoprism.age";
+    path = "/var/lib/photoprism/config/options.yml";
+  };
   services.photoprism = {
     enable = true;
     port = 2342;
     originalsPath = "/var/lib/private/photoprism/originals";
     address = "0.0.0.0";
     settings = {
+      PHOTOPRISM_CONFIG_PATH = "/var/lib/photoprism/config";
       PHOTOPRISM_ADMIN_USER = "pandenko";
-      PHOTOPRISM_ADMIN_PASSWORD = "pass";
+   #   PHOTOPRISM_ADMIN_PASSWORD = "...";
       PHOTOPRISM_DEFAULT_LOCALE = "en";
       PHOTOPRISM_DATABASE_DRIVER = "mysql";
       PHOTOPRISM_DATABASE_NAME = "photoprism";

@@ -8,9 +8,13 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    agenix = {
+      url = "github:yaxitech/ragenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixos-wsl, ... }: {
+  outputs = inputs@{ self, nixpkgs, agenix, nixpkgs-unstable, nixos-wsl, ... }: {
     nixosConfigurations = {
       heart = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -18,6 +22,7 @@
         modules = [
           nixos-wsl.nixosModules.default
           ./heart/configuration.nix
+          agenix.nixosModules.default
         ];
       };
       moon = nixpkgs.lib.nixosSystem {
@@ -25,6 +30,11 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./moon/configuration.nix
+          
+          agenix.nixosModules.default
+          {
+          environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
+          }
         ];
       };
     };
