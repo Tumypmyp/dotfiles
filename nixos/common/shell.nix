@@ -1,9 +1,16 @@
 {pkgs, ...}:
 {
    
-  environment.systemPackages = with pkgs; [
-    alejandra
-  ];
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+    '';
+  };
+
+  users.extraUsers.pandenko = {
+    shell = pkgs.fish;
+  };
 
   users.defaultUserShell = pkgs.zsh;
   programs.zsh = {
@@ -16,18 +23,10 @@
       enable = true;
       theme = "crcandy";
     };
-    interactiveShellInit = ''
-      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-    '';
-
-    shellAliases = {
+     shellAliases = {
       la = "ls -lah";
-      rebuild = "~/dotfiles/nixos/common/rebuild.sh";
     };
-    shellInit = ''
-      export LANG=en_US.UTF-8
-    '';
-    histSize = 10000;
+   histSize = 10000;
   };
 
 }

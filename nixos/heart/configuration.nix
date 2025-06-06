@@ -30,31 +30,33 @@
     cargo
     #    dioxus-cli
   ];
+    programs.fish.enable = true;
 
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    ruby
-    openssl
-    rpm
-    gtk3
-    libdrm
-    mesa
-    libxkbcommon
-    libxcrypt
+# programs.nix-ld.enable = true;
+#  programs.nix-ld.libraries = with pkgs; [
+#    ruby
+#    openssl
+#    rpm
+#    gtk3
+#    libdrm
+#    mesa
+#    libxkbcommon
+#    libxcrypt
     #    libxcrypt-compat
 
-    binutils
-    glibc.static
-    gcc
-    protobuf3_21
-    protoc-gen-grpc-web
-    protoc-gen-js
-  ];
-  services.envfs.enable = true;
-
+#    binutils
+#   glibc.static
+#    gcc
+#    protobuf3_21
+#    protoc-gen-grpc-web
+#    protoc-gen-js
+#  ];
+#  services.envfs.enable = true;
+  users.users.pandenko.extraGroups = [ "docker" ];
+  virtualisation.docker.enable = true;
   virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
+#    enable = true;
+#    setSocketVariable = true;
   };
 
   system.stateVersion = "24.11";
