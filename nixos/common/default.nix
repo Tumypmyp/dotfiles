@@ -5,6 +5,7 @@
     ./nvim
     ./shell.nix
     ./tmux.nix
+    ./syncthing.nix
   ];
   time.timeZone = "Asia/Almaty";
   

@@ -8,7 +8,6 @@
   imports = [
     ../common
     ./hardware-configuration.nix
-    ./syncthing.nix
     ./photoprism.nix
     ./age.nix
   ];

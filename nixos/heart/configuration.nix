@@ -14,7 +14,6 @@
     # include NixOS-WSL modules
     # <nixos-wsl/modules>
     ../common
-    ./syncthing.nix
   ];
 
   wsl.enable = true;
