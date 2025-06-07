@@ -51,7 +51,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -86,23 +86,23 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     brave
-    anytype
+#    anytype
 
     #    libxcrypt-compat
   ];
 
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    gtk3
-    bash
-    glibc
-    gcc
+#  programs.nix-ld.enable = true;
+#  programs.nix-ld.libraries = with pkgs; [
+#    gtk3
+#    bash
+#    glibc
+#    gcc
 
     # Add any missing dynamic libraries for unpackaged programs
     # here, NOT in environment.systemPackages
-  ];
+#  ];
 
-  services.envfs.enable = true;
+#  services.envfs.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
