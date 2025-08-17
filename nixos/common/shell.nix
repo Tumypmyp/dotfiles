@@ -1,32 +1,37 @@
 {pkgs, ...}:
 {
-   
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
     '';
   };
-
-  users.extraUsers.pandenko = {
+  
+  users.users.pandenko = {
     shell = pkgs.fish;
   };
-
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh = {
+ 
+  programs.direnv = {
     enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-
-    ohMyZsh = {
-      enable = true;
-      theme = "crcandy";
-    };
-     shellAliases = {
-      la = "ls -lah";
-    };
-   histSize = 10000;
+    enableFishIntegration = true;
   };
-
+  
+  # users.defaultUserShell = pkgs.bash;
+  #
+  # programs.zsh = {
+  #   enable = true;
+  #   enableCompletion = true;
+  #   autosuggestions.enable = true;
+  #   syntaxHighlighting.enable = true;
+  #
+  #   ohMyZsh = {
+  #     enable = true;
+  #     theme = "crcandy";
+  #   };
+  #    shellAliases = {
+  #     la = "ls -lah";
+  #   };
+  #  histSize = 10000;
+  # };
+  #
 }

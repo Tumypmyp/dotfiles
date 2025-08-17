@@ -1,8 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-# NixOS-WSL specific options are documented on the NixOS-WSL repository:
-# https://github.com/nix-community/NixOS-WSL
 {
   config,
   lib,
@@ -11,47 +6,33 @@
   ...
 }: {
   imports = [
-    # include NixOS-WSL modules
-    # <nixos-wsl/modules>
     ../common
   ];
 
   wsl.enable = true;
   wsl.defaultUser = "pandenko";
-
   networking.hostName = "heart";
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
   nixpkgs.config.allowUnfree = true;
+
+  # Enable the XFCE desktop environment
+  services.xserver.enable = true;
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
+
   environment.systemPackages = with pkgs; [
     go
 
+    tigervnc
+    xorg.xinit
     cargo
-    #    dioxus-cli
+
+    brave
+    zed-editor
+    anytype
   ];
-    programs.fish.enable = true;
 
-# programs.nix-ld.enable = true;
-#  programs.nix-ld.libraries = with pkgs; [
-#    ruby
-#    openssl
-#    rpm
-#    gtk3
-#    libdrm
-#    mesa
-#    libxkbcommon
-#    libxcrypt
-    #    libxcrypt-compat
-
-#    binutils
-#   glibc.static
-#    gcc
-#    protobuf3_21
-#    protoc-gen-grpc-web
-#    protoc-gen-js
-#  ];
-#  services.envfs.enable = true;
   users.users.pandenko.extraGroups = [ "docker" ];
   virtualisation.docker.enable = true;
   virtualisation.docker.rootless = {
@@ -59,5 +40,14 @@
 #    setSocketVariable = true;
   };
 
+
+  services.openssh = {
+    enable = true;
+    ports = [ 22 ];
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
+  };
   system.stateVersion = "24.11";
 }
