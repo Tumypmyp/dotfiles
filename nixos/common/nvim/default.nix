@@ -1,6 +1,5 @@
-{
-  inputs,
-  ...
+{ inputs
+, ...
 }:
 {
   imports = [ inputs.nixvim.nixosModules.nixvim ];
@@ -9,8 +8,108 @@
     defaultEditor = true;
     vimAlias = true;
     viAlias = true;
-    imports = [	./theme.nix ];
+    imports = [ ./theme.nix ];
+
+    plugins = {
+      blink-cmp.enable = true;
+      transparent = {
+        enable = true;
+      	autoLoad = true;
+      };
+      telescope = {
+        enable = true;
+        extensions = {
+        fzf-native = {
+            enable = true;
+          };
+        };
+      };
+      web-devicons.enable = true;
+
+      lsp-format = {
+        enable = true;
+      };
+      lsp = {
+        enable = true;
+        inlayHints = true;
+        servers = {
+
+          # Rust
+          rust_analyzer = {
+            enable = true;
+            installRustc = true;
+            installCargo = true;
+          };
+
+          # Golang
+          gopls = {
+            enable = true;
+            autostart = true;
+          };
+        };
+        keymaps = {
+          silent = true;
+          lspBuf = {
+            gd = {
+              action = "definition";
+              desc = "Goto Definition";
+            };
+            gr = {
+              action = "references";
+              desc = "Goto References";
+            };
+            gD = {
+              action = "declaration";
+              desc = "Goto Declaration";
+            };
+            gI = {
+              action = "implementation";
+              desc = "Goto Implementation";
+            };
+            gT = {
+              action = "type_definition";
+              desc = "Type Definition";
+            };
+          };
+        };
+      };
+    };
+
+    keymaps = [
+    # Telescope bindings
+
+      {
+        action = "<cmd>Telescope live_grep<CR>";
+        key = "<leader>fw";
+      }
+      {
+        action = "<cmd>Telescope find_files<CR>";
+        key = "<leader>ff";
+      }
+      {
+        action = "<cmd>Telescope git_commits<CR>";
+        key = "<leader>fg";
+      }
+      {
+        action = "<cmd>Telescope oldfiles<CR>";
+        key = "<leader>fh";
+      }
+      {
+        action = "<cmd>Telescope colorscheme<CR>";
+        key = "<leader>ch";
+      }
+      {
+        action = "<cmd>Telescope man_pages<CR>";
+        key = "<leader>fm";
+      }
+    ];
+    
+    globals = {
+      localleader = " ";
+      mapleader = ",";
+    };
     opts = {
+
       # Show line numbers
       number = true;
 
@@ -63,11 +162,11 @@
       # Disable swap file creation
       swapfile = false;
 
-      # Time in milliseconds to wait for a mapped sequence to complete
-      timeoutlen = 300;
-
-      # Don't show mode in the command line
-      showmode = false;
+      # # Time in milliseconds to wait for a mapped sequence to complete
+      # timeoutlen = 300;
+      #
+      # # Don't show mode in the command line
+      # showmode = false;
 
       # Open new split below the current window
       splitbelow = true;
@@ -84,7 +183,7 @@
       # Remove EOB
       fillchars = {
         eob = " ";
-      };
+       };
     };
   };
 }

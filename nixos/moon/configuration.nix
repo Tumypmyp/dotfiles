@@ -11,8 +11,6 @@
     ./hardware-configuration.nix
     ./photoprism.nix
     ./age.nix
- 
-
   ];
 
   # Bootloader.
@@ -25,7 +23,7 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -78,7 +76,7 @@
   users.users.pandenko = {
     isNormalUser = true;
     description = "Pandenko";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     ];
   };
@@ -100,22 +98,21 @@
 
 
 #    anytype
-
 #    libxcrypt-compat
   ];
 
-#  programs.nix-ld.enable = true;
-#  programs.nix-ld.libraries = with pkgs; [
-#    gtk3
-#    bash
-#    glibc
-#    gcc
+  #  programs.nix-ld.enable = true;
+  #  programs.nix-ld.libraries = with pkgs; [
+  #    gtk3
+  #    bash
+  #    glibc
+  #    gcc
 
-    # Add any missing dynamic libraries for unpackaged programs
-    # here, NOT in environment.systemPackages
-#  ];
+  # Add any missing dynamic libraries for unpackaged programs
+  # here, NOT in environment.systemPackages
+  #  ];
 
-#  services.envfs.enable = true;
+  #  services.envfs.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -144,8 +141,8 @@
   '';
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [8384 2342];
-  networking.firewall.allowedUDPPorts = [8384 2342];
+  networking.firewall.allowedTCPPorts = [ 8384 2342 ];
+  networking.firewall.allowedUDPPorts = [ 8384 2342 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

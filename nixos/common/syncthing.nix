@@ -1,8 +1,8 @@
 { ... }:
-{  
-#  age.secrets.syncthing = {
-#    file = "/home/pandenko/dotfiles/nixos/secrets/syncthing.age";
-#  };
+{
+  #  age.secrets.syncthing = {
+  #    file = "/home/pandenko/dotfiles/nixos/secrets/syncthing.age";
+  #  };
   services.syncthing = {
     enable = true;
     openDefaultPorts = true;

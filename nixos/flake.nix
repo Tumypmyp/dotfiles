@@ -3,7 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -16,9 +16,16 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # zen-browser = {
+    #   url = "github:0xc000022070/zen-browser-flake";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = inputs@{ self, nixpkgs, agenix, nixpkgs-unstable, nixos-wsl, ... }: {
+    formatter = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed (system:
+      nixpkgs.legacyPackages.${system}.nixpkgs-fmt # Or pkgs.nixfmt-rfc-style if you prefer
+    );
     nixosConfigurations = {
       heart = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -34,10 +41,10 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./moon/configuration.nix
-          
+
           agenix.nixosModules.default
           {
-          environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
+            environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
           }
         ];
       };

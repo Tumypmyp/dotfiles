@@ -1,9 +1,8 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
+{ config
+, lib
+, pkgs
+, inputs
+, ...
 }: {
   imports = [
     ../common
@@ -13,7 +12,7 @@
   wsl.defaultUser = "pandenko";
   networking.hostName = "heart";
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
   # Enable the XFCE desktop environment
@@ -36,8 +35,8 @@
   users.users.pandenko.extraGroups = [ "docker" ];
   virtualisation.docker.enable = true;
   virtualisation.docker.rootless = {
-#    enable = true;
-#    setSocketVariable = true;
+    #    enable = true;
+    #    setSocketVariable = true;
   };
 
 

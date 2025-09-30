@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   imports = [
     ./git.nix
@@ -8,9 +8,9 @@
     ./syncthing.nix
   ];
   time.timeZone = "Asia/Almaty";
-  
+
   environment.systemPackages = with pkgs; [
-#    wget
+    #    wget
     tree
   ];
 }

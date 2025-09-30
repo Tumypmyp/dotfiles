@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# prepare Xauthority file
+cookie=$(mcookie)
+xauth -f $HOME/.Xauthority source - <<EOF
+add $HOSTNAME:1 . $cookie 
+add $HOSTNAME/unix:1 . $cookie
+EOF
+
+# logic lifted from sx 
+trap 'DISPLAY=:1 exec xterm & wait "$!"' USR1
+(trap "" USR1 && exec Xvnc :1 -auth $HOME/.Xauthority -PasswordFile=$HOME/.vnc/passwd -desktop $HOSTNAME:1) & pid=$!
+wait "$pid"

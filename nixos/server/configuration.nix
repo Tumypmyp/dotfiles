@@ -1,10 +1,9 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
   imports = [
     # Include the results of the hardware scan.
@@ -73,7 +72,7 @@
   users.users.pandenko = {
     isNormalUser = true;
     description = "Valentin Pandenko";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       #  thunderbird
     ];
@@ -118,8 +117,8 @@
   virtualisation.podman.enable = true;
   virtualisation.docker.enable = true;
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [80 443 8096];
-  networking.firewall.allowedUDPPorts = [80 443 8096];
+  networking.firewall.allowedTCPPorts = [ 80 443 8096 ];
+  networking.firewall.allowedUDPPorts = [ 80 443 8096 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
