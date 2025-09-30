@@ -3,6 +3,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -10,6 +11,8 @@
     ./hardware-configuration.nix
     ./photoprism.nix
     ./age.nix
+ 
+
   ];
 
   # Bootloader.
@@ -43,7 +46,7 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
+    layout = "us,ru";
     variant = "";
   };
 
@@ -66,6 +69,8 @@
     #media-session.enable = true;
   };
 
+#  services.x2goserver.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -75,20 +80,28 @@
     description = "Pandenko";
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-      #  thunderbird
     ];
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     brave
+    bitwarden-desktop
+    telegram-desktop
+#    thunderbird
+    
+    inputs.zen-browser.packages.${pkgs.system}.default
+
+#    tigervnc
+#    xorg.xinit
+
+
 #    anytype
 
-    #    libxcrypt-compat
+#    libxcrypt-compat
   ];
 
 #  programs.nix-ld.enable = true;
