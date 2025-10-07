@@ -27,7 +27,6 @@
     xorg.xinit
     cargo
 
-    brave
     zed-editor
     anytype
   ];

@@ -1,10 +1,9 @@
 # Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  inputs,
-  ...
+{ config
+, pkgs
+, inputs
+, ...
 }: {
   imports = [
     ../common
@@ -67,7 +66,7 @@
     #media-session.enable = true;
   };
 
-#  services.x2goserver.enable = true;
+  #  services.x2goserver.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -89,16 +88,16 @@
     brave
     bitwarden-desktop
     telegram-desktop
-#    thunderbird
-    
+    #    thunderbird
+
     inputs.zen-browser.packages.${pkgs.system}.default
 
-#    tigervnc
-#    xorg.xinit
+    #    tigervnc
+    #    xorg.xinit
 
 
-#    anytype
-#    libxcrypt-compat
+    #    anytype
+    #    libxcrypt-compat
   ];
 
   #  programs.nix-ld.enable = true;

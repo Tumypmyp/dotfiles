@@ -14,12 +14,12 @@
       blink-cmp.enable = true;
       transparent = {
         enable = true;
-      	autoLoad = true;
+        autoLoad = true;
       };
       telescope = {
         enable = true;
         extensions = {
-        fzf-native = {
+          fzf-native = {
             enable = true;
           };
         };
@@ -33,6 +33,12 @@
         enable = true;
         inlayHints = true;
         servers = {
+
+          zls.enable = true;
+          # Zig
+          # zig-language-server = {
+          #   enable = true;
+          # };
 
           # Rust
           rust_analyzer = {
@@ -76,7 +82,7 @@
     };
 
     keymaps = [
-    # Telescope bindings
+      # Telescope bindings
 
       {
         action = "<cmd>Telescope live_grep<CR>";
@@ -103,7 +109,7 @@
         key = "<leader>fm";
       }
     ];
-    
+
     globals = {
       localleader = " ";
       mapleader = ",";
@@ -183,7 +189,7 @@
       # Remove EOB
       fillchars = {
         eob = " ";
-       };
+      };
     };
   };
 }
